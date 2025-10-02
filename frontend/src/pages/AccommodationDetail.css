@@ -16,7 +16,7 @@
   align-items: center;
   padding: 45px 0px 10px;
   gap: 20px;
-  width: 100%;
+  width: 95%;
 }
 
 /* Section Carrousel selon Figma - pleine largeur */
@@ -104,7 +104,7 @@
 /* Section Informations selon Figma - pleine largeur */
 .accommodation-info {
   width: 100%;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 
 .info-container {
@@ -210,7 +210,7 @@
 /* Section Dropdowns selon Figma - pleine largeur */
 .dropdowns-section {
   width: 100%;
-  padding: 0 20px;
+  padding: 0 0px;
   margin-top: 5px;
   margin-bottom: 0;
 }
@@ -292,7 +292,7 @@
   
   .accommodation-info,
   .dropdowns-section {
-    padding: 0 15px;
+    padding: 0 0px;
   }
   
   .info-container {

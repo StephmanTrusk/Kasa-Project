@@ -11,7 +11,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "test:html": "jest && start test-results.html",
+    "test:html": "jest && (open test-results.html || xdg-open test-results.html || start test-results.html)",
     "test:open": "npm run test:html"
   },
   "dependencies": {
