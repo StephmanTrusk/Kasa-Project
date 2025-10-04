@@ -3,9 +3,7 @@ import Navigation from './components/Navigation'
 import Home from './pages/Home'
 import About from './pages/About'
 import Footer from './components/Footer'
-import ApartmentDropdownDemo from './pages/ApartmentDropdownDemo'
 import './App.css'
-import ComponentsTest from './pages/ComponentsTest'
 import AccommodationDetail from './pages/AccommodationDetail'
 import NotFound from './pages/NotFound'
 
@@ -20,8 +18,6 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
-                    <Route path="/apartment-dropdown" element={<ApartmentDropdownDemo />} />
-                    <Route path="/components-test" element={<ComponentsTest />} />
                     <Route path="/accommodation/:id" element={<AccommodationDetail />} />
                     <Route path="/404" element={<NotFound />} />
                     {/* Catch-all 404 */}
