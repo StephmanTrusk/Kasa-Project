@@ -1,0 +1,116 @@
+/* ApartmentDropdown selon l'image 2 - Bouton horizontal simple */
+
+.apartment-dropdown {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px 0;
+}
+
+/* Bouton principal selon l'image 2 */
+.dropdown-button {
+  width: 100%;
+  height: 50px;
+  background-color: #F86F6F; /* Rouge comme dans l'image */
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-button:hover {
+  background-color: #E85A5A;
+}
+
+/* Texte du bouton */
+.button-text {
+  color: #FFFFFF;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: left;
+}
+
+/* Flèche SVG du bouton */
+.button-arrow {
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+.button-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* Contenu déroulant */
+.dropdown-content {
+  background-color: #F8F9FA;
+  border-radius: 0 0 10px 10px;
+  padding: 20px;
+  margin-top: 2px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.3s ease;
+}
+
+/* Animation d'ouverture */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Liste des équipements */
+.equipments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.equipment-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #E9ECEF;
+  color: #333;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+
+.equipment-item:last-child {
+  border-bottom: none;
+}
+
+/* Message si pas d'équipements */
+.no-equipments {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .apartment-dropdown {
+    max-width: 100%;
+  }
+  
+  .dropdown-button {
+    height: 45px;
+    padding: 0 15px;
+  }
+  
+  .button-text {
+    font-size: 16px;
+  }
+  
+  .button-arrow {
+    font-size: 18px;
+  }
+}

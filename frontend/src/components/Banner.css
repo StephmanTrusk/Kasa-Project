@@ -1,0 +1,126 @@
+/* Banner selon Figma */
+
+.banner-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+/* Section 1 selon Figma */
+.banner-container {
+  position: relative;
+  width: 1240px;
+  height: 223px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+/* Mask Group */
+.banner-mask {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Background gris */
+.banner-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #F7F7F7;
+  border-radius: 25px;
+}
+
+/* Image de fond */
+.banner-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+  background-size: cover;
+  background-position: center;
+  border-radius: 25px;
+}
+
+/* Overlay noir avec opacité */
+.banner-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  mix-blend-mode: darken;
+  opacity: 0.6;
+  border-radius: 25px;
+}
+
+/* Texte principal selon Figma */
+.banner-title {
+  position: absolute;
+  width: 733px;
+  height: 68px;
+  left: calc(50% - 733px/2 + 19.5px);
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 142.6%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 0;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 1280px) {
+  .banner-container {
+    width: 90%;
+    max-width: 1240px;
+  }
+  
+  .banner-title {
+    width: 90%;
+    max-width: 733px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-container {
+    height: 180px;
+  }
+  
+  .banner-title {
+    font-size: 28px;
+    height: auto;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-section { margin: 20px 0; }
+  .banner-container {
+    width: 335px;
+    height: 111px;
+  }
+  .banner-background,
+  .banner-image,
+  .banner-overlay { border-radius: 10px; }
+  .banner-title {
+    width: 225px;
+    height: 48px;
+    left: 16px;
+    top: 31px;
+    transform: none;
+    font-size: 24px;
+    line-height: 100%;
+    text-align: left;
+    justify-content: flex-start;
+  }
+}

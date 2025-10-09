@@ -1,0 +1,36 @@
+/* Tag adaptatif - suit le flux et reste dans son conteneur */
+
+.tag {
+  position: relative;
+  display: inline-block;
+  min-width: 115px; /* taille mini */
+  height: 25px; /* hauteur fixe Figma */
+}
+
+/* Rectangle 3 selon Figma */
+.tag-background {
+  position: absolute;
+  inset: 0;
+  background: #FF6060;
+  border-radius: 10px;
+}
+
+/* tag-name selon Figma */
+.tag-text {
+  position: relative;
+  z-index: 1;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 20px;
+}

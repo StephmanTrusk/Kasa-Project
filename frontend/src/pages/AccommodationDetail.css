@@ -1,0 +1,406 @@
+/* AccommodationDetail selon Figma - D_Fiche-Logement */
+
+.accommodation-detail {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  width: 100%;
+}
+
+/* Contenu principal - prend toute la largeur */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 45px 0px 10px;
+  gap: 20px;
+  width: 95%;
+}
+
+/* Section Carrousel selon Figma - pleine largeur */
+.carousel-section {
+  width: 100%;
+  height: 415px;
+  position: relative;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.carousel-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 25px;
+}
+
+.image-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #000000;
+  mix-blend-mode: darken;
+  opacity: 0.3;
+  border-radius: 25px;
+}
+
+/* Flèches du carrousel selon Figma */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.carousel-arrow.prev {
+  left: 20px;
+}
+
+.carousel-arrow.next {
+  right: 20px;
+}
+
+.carousel-arrow svg { opacity: 0.87; width: 47px; height: 79px; }
+
+/* Compteur d'images selon Figma */
+.image-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 142.6%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+/* Section Informations selon Figma - pleine largeur */
+.accommodation-info {
+  width: 100%;
+  padding: 0 10px;
+}
+
+.info-container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Titre et localisation selon Figma */
+.title-section { grid-column: 1; grid-row: 1; }
+.rating-host-section { grid-column: 2; grid-row: 1; }
+.tags-section { grid-column: 1 / -1; grid-row: 2; }
+
+.accommodation-title {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 142.6%;
+  color: #FF6060;
+  margin: 20px 0 10px 0;
+}
+
+.accommodation-location {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 142.6%;
+  color: #000000;
+  margin: 0;
+}
+
+/* Section Tags selon Figma */
+.tags-section {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+/* Section Note et Hôte selon Figma */
+.rating-host-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+  min-width: 200px;
+  margin-right: 50px;
+  margin-top: 20px;
+}
+
+.rating {
+  display: flex;
+  gap: 5px;
+}
+
+.star {
+  width: 24px;
+  height: 24px;
+}
+
+.star.active svg path {
+  fill: #FF6060;
+}
+
+.star.inactive svg path {
+  fill: #E3E3E3;
+}
+
+.host {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.host-name {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 142.6%;
+  color: #FF6060;
+  text-align: right;
+}
+
+.host-avatar {
+  width: 64px;
+  height: 64px;
+  background: #C4C4C4;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.host-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Section Dropdowns selon Figma - pleine largeur */
+.dropdowns-section {
+  width: 100%;
+  padding: 0 0px;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.dropdowns-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 76px;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+/* États de chargement et d'erreur */
+.loading, .error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  color: #FF6060;
+}
+
+.error button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: #FF6060;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.error button:hover {
+  background: #E85A5A;
+}
+
+/* Responsive */
+@media (max-width: 1240px) {
+  .main-content {
+    padding: 30px 0px 0px;
+    gap: 40px;
+  }
+  
+  .carousel-section {
+    height: 300px;
+  }
+  
+  .accommodation-title {
+    font-size: 28px;
+  }
+  
+  .accommodation-location {
+    font-size: 16px;
+  }
+  
+  .dropdowns-container {
+    flex-direction: row;
+    gap: 40px;
+    flex-wrap: nowrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 20px 0px 0px;
+    gap: 30px;
+  }
+  
+  .carousel-section {
+    height: 250px;
+  }
+  
+  .accommodation-info,
+  .dropdowns-section {
+    padding: 0 0px;
+  }
+  
+  .info-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .title-section {
+    min-width: auto;
+  }
+  
+  .accommodation-title {
+    font-size: 24px;
+  }
+  
+  .accommodation-location {
+    font-size: 14px;
+  }
+  
+  .rating-host-section {
+    align-items: flex-start;
+    min-width: auto;
+  }
+  
+  .host {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .host-name {
+    text-align: left;
+  }
+  
+  .carousel-arrow.prev {
+    left: 10px;
+  }
+  
+  .carousel-arrow.next {
+    right: 10px;
+  }
+  
+  .image-counter {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+  
+  .dropdowns-container {
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: nowrap;
+  }
+}
+
+/* Mobile 375px */
+@media (max-width: 480px) {
+  .main-content { padding: 20px 0 0; gap: 20px; }
+
+  /* Carrousel 335 x 255 */
+  .carousel-section { height: 255px; }
+  .carousel-container {
+    width: 335px;
+    height: 255px;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+  .carousel-image img, .image-overlay { border-radius: 10px; }
+  .carousel-arrow.prev { left: 6px; }
+  .carousel-arrow.next { right: 6px; }
+  .image-counter { display: none; }
+
+  /* Bloc info 335px centré */
+  .accommodation-info,
+  .dropdowns-section {
+    padding: 0;
+    width: 335px;
+    margin: 0 auto;
+  }
+  .info-container { display: flex; flex-direction: column; gap: 12px; }
+  .title-section { order: 1; }
+  .tags-section { order: 2; }
+  .rating-host-section { order: 3; margin-top: 16px; }
+
+  /* Titre + localisation */
+  .accommodation-title { font-size: 18px; margin: 0; }
+  .accommodation-location { font-size: 14px; }
+  .tags-section { gap: 8px; }
+
+  /* Note et Hôte */
+  .rating-host-section {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    min-width: auto;
+  }
+  .rating { gap: 4px; }
+  .star { width: 18px; height: 18px; }
+  .host { flex-direction: row; align-items: center; gap: 8px; }
+  .host-name { font-size: 14px; text-align: right; }
+  .host-avatar { width: 40px; height: 40px; }
+
+  /* Dropdowns en colonne compacte */
+  .dropdowns-container { flex-direction: column; gap: 12px; }
+
+  /* Inverser l'ordre hôte / notation */
+  .rating-host-section { flex-direction: row-reverse; }
+  .rating-host-section .rating { order: 2; }
+  .rating-host-section .host { order: 1; }
+}

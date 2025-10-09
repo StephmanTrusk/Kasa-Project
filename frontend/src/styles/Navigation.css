@@ -1,22 +1,103 @@
-.nav-menu {
-    background-color: #f8f9fa;
-    padding: 1rem;
-}
+/* Header selon Figma */
 
-.nav-menu ul {
-    list-style: none;
+.header {
+    width: 100%;
     display: flex;
-    gap: 20px;
-    margin: 0;
+    justify-content: center;
     padding: 0;
+    margin: 0;
 }
 
-.nav-menu a {
+.header-container {
+    width: 1240px;
+    height: 68px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* Logo dans le header */
+.header-logo {
+    position: absolute;
+    left: 0%;
+    right: 83.04%;
+    top: 0%;
+    bottom: 0%;
+    display: flex;
+    align-items: center;
+}
+
+/* Navigation selon Figma */
+.header-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 57px;
+    position: absolute;
+    height: 34px;
+    left: 70%;
+    right: 0%;
+    top: calc(50% - 34px/2);
+}
+
+/* Liens de navigation selon Figma */
+.nav-link {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 142.6%;
+    /* display: flex; */
+    align-items: flex-end;
+    text-align: right;
+    color: #000000;
     text-decoration: none;
-    color: #333;
-    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-.nav-menu a:hover {
-    color: #007bff;
+/* Souligné uniquement quand actif */
+.nav-link.active {
+    text-decoration-line: underline;
+}
+
+/* A Propos selon Figma */
+.nav-link:last-child {
+    width: 116px;
+    height: 34px;
+}
+
+.nav-link:hover {
+    color: #FF6060;
+}
+
+/* Responsive */
+@media (max-width: 1280px) {
+    .header-container {
+        width: 90%;
+        max-width: 1240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        height: 60px;
+        padding: 0 20px;
+    }
+    
+    .header-nav {
+        gap: 20px;
+    }
+    
+    .nav-link {
+        font-size: 16px;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-container { height: 56px; padding: 0 16px; }
+    .header-nav { gap: 16px; }
+    .nav-link { font-size: 14px; }
 }

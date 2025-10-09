@@ -1,53 +1,84 @@
-/* Mon CSS pour la page À propos */
+/* Page À propos selon Figma */
 
-/* Style général de la page */
 .about-page {
-    max-width: 800px;  /* Pour que ça soit pas trop large */
-    margin: 0 auto;    /* Pour centrer la page */
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 45px 0px 0px;
+    gap: 40px;
+    position: relative;
+    width: 100%;
+    background: #FFFFFF;
 }
 
-/* Style du titre principal */
-.about-page h1 {
-    color: #FF6060;
-    text-align: center;
-    margin-bottom: 30px;
+/* Bannière */
+.about-banner {
+    position: relative;
+    width: 1240px;
+    height: 223px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 25px;
+    overflow: hidden; 
 }
 
-/* La section "À propos" */
-.about-section {
-    margin-top: 40px;
+.about-banner__image {
+    position: absolute;
+    width: 1240px;
+    height: 223px;
+    left: 0;
+    top: 0;
+    background: url('https://i0.wp.com/reviverestore.org/wp-content/uploads/2022/11/kalen-emsley-Bkci_8qcdvQ-unsplash-scaled.jpg?ssl=1');
+    background-size: cover;
+    background-position: center;
 }
 
-/* Le titre de la section */
-.about-section h2 {
-    color: #FF6060;
-    margin-bottom: 20px;
+.about-banner__overlay {
+    position: absolute;
+    width: 1240px;
+    height: 223px;
+    left: 0;
+    top: 0;
+    background: #000000;
+    mix-blend-mode: darken;
+    opacity: 0.3;
+    border-radius: 25px;
 }
 
-/* La liste des valeurs */
-.about-section ul {
-    list-style: none;  /* Pour enlever les puces */
-    padding: 0;
+/* Valeurs (dropdowns large) */
+.values-section {
+    width: 50%;
+    display: flex;
+    justify-content: center;
 }
 
-/* Chaque valeur */
-.value-item {
-    background-color: #f8f9fa;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.values-container {
+    position: relative;
+    width: 1023px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
-/* Les titres des valeurs */
-.value-item h3 {
-    color: #FF6060;
-    margin-bottom: 10px;
+/* Responsive */
+@media (max-width: 1280px) {
+    .about-banner { width: 90%; height: 200px; }
+    .about-banner__image { width: 100%; left: 0; }
+    .about-banner__overlay { width: 100%; }
+    .values-container { width: 90%; }
 }
 
-/* Les descriptions des valeurs */
-.value-item p {
-    color: #666;
-    line-height: 1.5;  /* Pour que ce soit plus lisible */
+@media (max-width: 768px) {
+    .about-page { padding: 20px 0px 0px; gap: 24px; }
+}
+
+@media (max-width: 480px) {
+    .about-page { gap: 19px; min-height: calc(100vh - 150px); }
+    /* Bannière 335x111 avec coins 10px */
+    .about-banner { width: 335px; height: 111px; border-radius: 10px; }
+    .about-banner__image { width: 335px; height: 111px; }
+    .about-banner__overlay { width: 335px; height: 111px; border-radius: 10px; }
+
+    /* Section valeurs largeur 335px */
+    .values-section { width: 335px; }
+    .values-container { width: 335px; gap: 20px; }
 }

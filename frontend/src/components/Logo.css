@@ -1,0 +1,30 @@
+.kasa-logo {
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Animation au survol */
+.kasa-logo:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Version cliquable */
+.kasa-logo.clickable {
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .kasa-logo {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .kasa-logo {
+    transform: scale(1.50);
+    transform-origin: left center;
+  }
+}

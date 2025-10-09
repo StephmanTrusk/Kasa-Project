@@ -1,10 +1,12 @@
 /* Styles pour la page d'accueil */
 .home-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     text-align: center;
 }
 
 .home-page h1 {
-    color: #FF6060;
     margin-bottom: 20px;
 }
 
@@ -42,4 +44,95 @@
 
 .apartment-card p {
     color: #666;
+}
+/* Gallery Section selon Figma */
+.gallery-section {
+  padding: 40px 20px;
+  background: #F7F7F7;
+}
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px 60px;
+  max-width: 1240px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .gallery-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 20px;
+  }
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 40px;
+  padding: 20px 0;
+}
+
+.page-btn {
+  padding: 10px 20px;
+  border: 1px solid #FF6060;
+  background: #FFFFFF;
+  color: #FF6060;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.page-btn:hover:not(:disabled) {
+  background: #FF6060;
+  color: #FFFFFF;
+}
+
+.page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 10px;
+}
+
+.page-number {
+  padding: 10px 15px;
+  border: 1px solid #FF6060;
+  background: #FFFFFF;
+  color: #FF6060;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.page-number:hover {
+  background: #FF6060;
+  color: #FFFFFF;
+}
+
+.page-number.active {
+  background: #FF6060;
+  color: #FFFFFF;
 }

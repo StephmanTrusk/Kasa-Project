@@ -1,0 +1,63 @@
+.notfound-page {
+    width: 100%;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px 0;
+}
+
+.notfound-code {
+    width: 597px;
+    height: 263px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 288px;
+    line-height: 142.6%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #FF6060;
+}
+
+.notfound-message {
+    width: 872px;
+    height: 51px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 142.6%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: #FF6060;
+    text-align: center;
+}
+
+.notfound-home-link {
+    width: 284px;
+    height: 26px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 142.6%;
+    display: flex;
+    align-items: flex-end;
+    text-decoration-line: underline;
+    color: #000000;
+    justify-content: center;
+}
+
+@media (max-width: 900px) {
+    .notfound-code { font-size: 180px; width: auto; height: auto; }
+    .notfound-message { width: 90%; font-size: 24px; height: auto; }
+    .notfound-home-link { width: auto; }
+}
+
+
