@@ -109,13 +109,13 @@ function AccommodationDetail() {
             {/* Navigation du carrousel */}
             <button className="carousel-arrow prev" onClick={prevImage}>
               <svg width="47" height="79" viewBox="0 0 47 79" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <polyline points="30,10 10,39.5 30,69" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                <polyline points="30,10 10,39.5 30,69" stroke="white" strokeWidth="6" fill="none" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
             
             <button className="carousel-arrow next" onClick={nextImage}>
               <svg width="47" height="79" viewBox="0 0 47 79" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <polyline points="17,10 37,39.5 17,69" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                <polyline points="17,10 37,39.5 17,69" stroke="white" strokeWidth="6" fill="none" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
             

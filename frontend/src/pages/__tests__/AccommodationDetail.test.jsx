@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, waitFor, fireEvent } from '@testing-library/react';
+import { render, screen, waitFor, fireEvent, act } from '@testing-library/react';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import AccommodationDetail from '../AccommodationDetail';
 
@@ -50,22 +50,36 @@ describe('AccommodationDetail Page', () => {
     jest.clearAllMocks();
   });
 
-  test('renders loading state initially', () => {
-    render(
-      <RouterWrapper>
-        <AccommodationDetail />
-      </RouterWrapper>
+  test('renders loading state initially', async () => {
+    // Mock fetch pour qu'il soit lent
+    global.fetch = jest.fn(() => 
+      new Promise(resolve => 
+        setTimeout(() => resolve({
+          ok: true,
+          json: () => Promise.resolve([mockAccommodation]),
+        }), 100)
+      )
     );
+
+    await act(async () => {
+      render(
+        <RouterWrapper>
+          <AccommodationDetail />
+        </RouterWrapper>
+      );
+    });
     
     expect(screen.getByText('Chargement du logement...')).toBeInTheDocument();
   });
 
   test('renders accommodation details after loading', async () => {
-    render(
-      <RouterWrapper>
-        <AccommodationDetail />
-      </RouterWrapper>
-    );
+    await act(async () => {
+      render(
+        <RouterWrapper>
+          <AccommodationDetail />
+        </RouterWrapper>
+      );
+    });
     
     await waitFor(() => {
       expect(screen.getByText('Appartement de luxe')).toBeInTheDocument();
@@ -75,11 +89,13 @@ describe('AccommodationDetail Page', () => {
   });
 
   test('renders carousel with navigation buttons', async () => {
-    render(
-      <RouterWrapper>
-        <AccommodationDetail />
-      </RouterWrapper>
-    );
+    await act(async () => {
+      render(
+        <RouterWrapper>
+          <AccommodationDetail />
+        </RouterWrapper>
+      );
+    });
     
     await waitFor(() => {
       // Utiliser les classes CSS pour identifier les boutons du carousel
@@ -92,11 +108,13 @@ describe('AccommodationDetail Page', () => {
   });
 
   test('renders image counter', async () => {
-    render(
-      <RouterWrapper>
-        <AccommodationDetail />
-      </RouterWrapper>
-    );
+    await act(async () => {
+      render(
+        <RouterWrapper>
+          <AccommodationDetail />
+        </RouterWrapper>
+      );
+    });
     
     await waitFor(() => {
       expect(screen.getByText('1/3')).toBeInTheDocument();
@@ -104,11 +122,13 @@ describe('AccommodationDetail Page', () => {
   });
 
   test('renders tags correctly', async () => {
-    render(
-      <RouterWrapper>
-        <AccommodationDetail />
-      </RouterWrapper>
-    );
+    await act(async () => {
+      render(
+        <RouterWrapper>
+          <AccommodationDetail />
+        </RouterWrapper>
+      );
+    });
     
     await waitFor(() => {
       expect(screen.getByText('WiFi')).toBeInTheDocument();
@@ -118,11 +138,13 @@ describe('AccommodationDetail Page', () => {
   });
 
   test('renders dropdowns', async () => {
-    render(
-      <RouterWrapper>
-        <AccommodationDetail />
-      </RouterWrapper>
-    );
+    await act(async () => {
+      render(
+        <RouterWrapper>
+          <AccommodationDetail />
+        </RouterWrapper>
+      );
+    });
     
     await waitFor(() => {
       expect(screen.getByText('Description')).toBeInTheDocument();
@@ -131,11 +153,13 @@ describe('AccommodationDetail Page', () => {
   });
 
   test('handles carousel navigation', async () => {
-    render(
-      <RouterWrapper>
-        <AccommodationDetail />
-      </RouterWrapper>
-    );
+    await act(async () => {
+      render(
+        <RouterWrapper>
+          <AccommodationDetail />
+        </RouterWrapper>
+      );
+    });
     
     await waitFor(() => {
       const buttons = screen.getAllByRole('button', { name: '' });
@@ -155,11 +179,13 @@ describe('AccommodationDetail Page', () => {
       })
     );
 
-    render(
-      <RouterWrapper initialEntries={['/accommodation/999']}>
-        <AccommodationDetail />
-      </RouterWrapper>
-    );
+    await act(async () => {
+      render(
+        <RouterWrapper initialEntries={['/accommodation/999']}>
+          <AccommodationDetail />
+        </RouterWrapper>
+      );
+    });
     
     await waitFor(() => {
       // Le composant devrait rediriger vers /404, mais on peut vérifier que l'état de chargement se termine

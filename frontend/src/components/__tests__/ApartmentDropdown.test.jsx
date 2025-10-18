@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ApartmentDropdown from '../ApartmentDropdown';
 
@@ -70,6 +70,12 @@ describe('ApartmentDropdown Component', () => {
     
     // Fermer
     await user.click(button);
+    
+    // Attendre la fin de l'animation avec act()
+    await act(async () => {
+      await new Promise(resolve => setTimeout(resolve, 350));
+    });
+    
     expect(screen.queryByText('Climatisation')).not.toBeInTheDocument();
   });
 

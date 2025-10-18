@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, act } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import Home from '../Home';
 
@@ -37,22 +37,36 @@ describe('Home Page', () => {
     jest.clearAllMocks();
   });
 
-  test('renders loading state initially', () => {
-    render(
-      <RouterWrapper>
-        <Home />
-      </RouterWrapper>
+  test('renders loading state initially', async () => {
+    // Mock fetch pour qu'il soit lent
+    global.fetch = jest.fn(() => 
+      new Promise(resolve => 
+        setTimeout(() => resolve({
+          ok: true,
+          json: () => Promise.resolve(mockAccommodations),
+        }), 100)
+      )
     );
+
+    await act(async () => {
+      render(
+        <RouterWrapper>
+          <Home />
+        </RouterWrapper>
+      );
+    });
     
     expect(screen.getByText('Chargement des logements...')).toBeInTheDocument();
   });
 
   test('renders banner with correct title', async () => {
-    render(
-      <RouterWrapper>
-        <Home />
-      </RouterWrapper>
-    );
+    await act(async () => {
+      render(
+        <RouterWrapper>
+          <Home />
+        </RouterWrapper>
+      );
+    });
     
     await waitFor(() => {
       expect(screen.getByText('Chez vous, partout et ailleurs')).toBeInTheDocument();
@@ -60,11 +74,13 @@ describe('Home Page', () => {
   });
 
   test('renders accommodation cards after loading', async () => {
-    render(
-      <RouterWrapper>
-        <Home />
-      </RouterWrapper>
-    );
+    await act(async () => {
+      render(
+        <RouterWrapper>
+          <Home />
+        </RouterWrapper>
+      );
+    });
     
     await waitFor(() => {
       expect(screen.getByText('Appartement de luxe')).toBeInTheDocument();
@@ -73,11 +89,13 @@ describe('Home Page', () => {
   });
 
   test('renders all accommodation cards', async () => {
-    render(
-      <RouterWrapper>
-        <Home />
-      </RouterWrapper>
-    );
+    await act(async () => {
+      render(
+        <RouterWrapper>
+          <Home />
+        </RouterWrapper>
+      );
+    });
     
     await waitFor(() => {
       const cards = screen.getAllByRole('link');
@@ -90,23 +108,27 @@ describe('Home Page', () => {
       Promise.reject(new Error('API Error'))
     );
 
-    render(
-      <RouterWrapper>
-        <Home />
-      </RouterWrapper>
-    );
+    await act(async () => {
+      render(
+        <RouterWrapper>
+          <Home />
+        </RouterWrapper>
+      );
+    });
     
     await waitFor(() => {
       expect(screen.getByText(/Erreur:/)).toBeInTheDocument();
     });
   });
 
-  test('calls API on component mount', () => {
-    render(
-      <RouterWrapper>
-        <Home />
-      </RouterWrapper>
-    );
+  test('calls API on component mount', async () => {
+    await act(async () => {
+      render(
+        <RouterWrapper>
+          <Home />
+        </RouterWrapper>
+      );
+    });
     
     expect(global.fetch).toHaveBeenCalledWith('http://localhost:8080/api/properties');
   });

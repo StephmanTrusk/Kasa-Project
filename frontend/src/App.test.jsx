@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, act } from '@testing-library/react';
 import App from './App';
 
 // Mock des données d'API
@@ -26,8 +26,10 @@ describe('App Component', () => {
     jest.clearAllMocks();
   });
 
-  test('renders navigation and footer', () => {
-    render(<App />);
+  test('renders navigation and footer', async () => {
+    await act(async () => {
+      render(<App />);
+    });
     
     // Vérifier que la navigation est présente
     expect(screen.getByRole('banner')).toBeInTheDocument();
@@ -40,7 +42,9 @@ describe('App Component', () => {
   });
 
   test('renders home page by default', async () => {
-    render(<App />);
+    await act(async () => {
+      render(<App />);
+    });
     
     // Attendre que la page d'accueil se charge complètement
     await waitFor(() => {
@@ -48,8 +52,10 @@ describe('App Component', () => {
     });
   });
 
-  test('renders 404 page for unknown routes', () => {
-    render(<App />);
+  test('renders 404 page for unknown routes', async () => {
+    await act(async () => {
+      render(<App />);
+    });
     
     // Simuler une route inexistante
     window.history.pushState({}, 'Test page', '/unknown-route');
