@@ -7,9 +7,22 @@ function ApartmentDropdown({
   title = "Équipements"
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+    if (isAnimating) return; // Empêche les clics multiples pendant l'animation
+    
+    if (isOpen) {
+      // Fermeture
+      setIsAnimating(true);
+      setTimeout(() => {
+        setIsOpen(false);
+        setIsAnimating(false);
+      }, 300); // Durée de l'animation
+    } else {
+      // Ouverture
+      setIsOpen(true);
+    }
   };
 
   return (
@@ -36,7 +49,7 @@ function ApartmentDropdown({
 
       {/* Contenu déroulant */}
       {isOpen && (
-        <div className="dropdown-content">
+        <div className={`dropdown-content ${isAnimating ? 'closing' : ''}`}>
           {equipments && equipments.length > 0 ? (
             <div className="equipments-list">
               {equipments.map((equipment, index) => (

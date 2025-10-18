@@ -1,6 +1,6 @@
 import './Banner.css'
 
-function Banner() {
+function Banner({ imageUrl }) {
   return (
     <div className="banner-section">
       {/* Section 1 selon Figma */}
@@ -10,16 +10,18 @@ function Banner() {
           {/* Background gris */}
           <div className="banner-background"></div>
           
-          {/* Image de fond */}
-          <div className="banner-image"></div>
+          {/* Image de fond - utilise imageUrl si fournie, sinon garde l'image par défaut du CSS */}
+          <div 
+            className="banner-image"
+            style={imageUrl ? { 
+              backgroundImage: `url(${imageUrl})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            } : {}}
+          ></div>
           
           {/* Overlay noir avec opacité */}
           <div className="banner-overlay"></div>
-          
-          {/* Texte principal */}
-          <h1 className="banner-title">
-            Chez vous, partout et ailleurs
-          </h1>
         </div>
       </div>
     </div>

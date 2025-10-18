@@ -1,14 +1,14 @@
 import '../styles/About.css'
 import ApartmentDropdown from '../components/ApartmentDropdown'
+import Banner from '../components/Banner'
 
 function About() {
     return (
         <div className="about-page">
             {/* Bannière À propos (selon Figma) */}
-            <section className="about-banner">
-                <div className="about-banner__image" />
-                <div className="about-banner__overlay" />
-            </section>
+            <Banner 
+                imageUrl="https://i0.wp.com/reviverestore.org/wp-content/uploads/2022/11/kalen-emsley-Bkci_8qcdvQ-unsplash-scaled.jpg?ssl=1"
+            />
 
             {/* Valeurs - 4 dropdowns large */}
             <section className="values-section">
