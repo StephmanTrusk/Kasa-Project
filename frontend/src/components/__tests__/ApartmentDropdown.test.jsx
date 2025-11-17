@@ -107,4 +107,74 @@ describe('ApartmentDropdown Component', () => {
     
     expect(screen.getByText('Description')).toBeInTheDocument();
   });
+
+  test('handles undefined equipments prop', () => {
+    render(
+      <ApartmentDropdown 
+        title="Description" 
+      />
+    );
+    
+    expect(screen.getByText('Description')).toBeInTheDocument();
+  });
+
+  test('handles null equipments prop', () => {
+    render(
+      <ApartmentDropdown 
+        title="Description" 
+        equipments={null}
+      />
+    );
+    
+    expect(screen.getByText('Description')).toBeInTheDocument();
+  });
+
+  test('uses default title when not provided', () => {
+    render(
+      <ApartmentDropdown 
+        equipments={mockEquipments} 
+      />
+    );
+    
+    expect(screen.getByText('Équipements')).toBeInTheDocument();
+  });
+
+  test('applies large size class when size prop is "large"', () => {
+    const { container } = render(
+      <ApartmentDropdown 
+        title="Test" 
+        equipments={mockEquipments}
+        size="large"
+      />
+    );
+    
+    const dropdown = container.querySelector('.apartment-dropdown');
+    expect(dropdown).toHaveClass('apartment-dropdown--large');
+  });
+
+  test('opens dropdown when defaultOpen is true', () => {
+    render(
+      <ApartmentDropdown 
+        title="Test" 
+        equipments={mockEquipments}
+        defaultOpen={true}
+      />
+    );
+    
+    // Le contenu doit être visible par défaut
+    expect(screen.getByText('Climatisation')).toBeInTheDocument();
+  });
+
+  test('stays closed when defaultOpen is false', () => {
+    render(
+      <ApartmentDropdown 
+        title="Test" 
+        equipments={mockEquipments}
+        defaultOpen={false}
+      />
+    );
+    
+    // Le contenu ne doit pas être visible
+    expect(screen.queryByText('Climatisation')).not.toBeInTheDocument();
+  });
 });

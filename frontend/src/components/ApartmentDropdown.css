@@ -6,6 +6,11 @@
   margin: 20px 0;
 }
 
+/* Variante large pour la page About */
+.apartment-dropdown--large {
+  max-width: 100%;
+}
+
 /* Bouton principal selon l'image 2 */
 .dropdown-button {
   width: 100%;

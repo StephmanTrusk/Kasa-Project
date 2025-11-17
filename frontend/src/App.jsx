@@ -10,7 +10,6 @@ import NotFound from './pages/NotFound'
 function App() {
     return (
         <BrowserRouter>
-            {/* Notre header de navigation */}
             <Navigation />
             
             {/* Le contenu principal */}
@@ -25,7 +24,6 @@ function App() {
                 </Routes>
             </main>
 
-            {/* Footer selon Figma */}
             <Footer />
         </BrowserRouter>
     )

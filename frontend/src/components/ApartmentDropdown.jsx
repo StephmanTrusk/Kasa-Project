@@ -4,9 +4,11 @@ import './ApartmentDropdown.css';
 // eslint-disable-next-line react/prop-types
 function ApartmentDropdown({ 
   equipments = [], 
-  title = "Équipements"
+  title = "Équipements",
+  size = "normal",
+  defaultOpen = false
 }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(defaultOpen);
   const [isAnimating, setIsAnimating] = useState(false);
 
   const toggleDropdown = () => {
@@ -26,7 +28,7 @@ function ApartmentDropdown({
   };
 
   return (
-    <div className="apartment-dropdown">
+    <div className={`apartment-dropdown ${size === 'large' ? 'apartment-dropdown--large' : ''}`}>
       {/* Bouton principal selon l'image 2 */}
       <button className="dropdown-button" onClick={toggleDropdown}>
         <span className="button-text">{title}</span>

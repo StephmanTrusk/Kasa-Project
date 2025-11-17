@@ -11,7 +11,8 @@ function Home() {
   useEffect(() => {
     const fetchAccommodations = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/properties');
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080/api/properties';
+        const response = await fetch(apiUrl);
         if (!response.ok) {
           throw new Error('Erreur lors de la récupération des données');
         }
@@ -37,7 +38,6 @@ function Home() {
 
   return (
     <div className="home-page">
-      {/* Banner selon Figma */}
       <div className="home-banner-wrapper">
         <Banner 
           imageUrl="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
